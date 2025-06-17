@@ -1,0 +1,229 @@
+/* Estilo UI tipo Anime/Futurista */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap');
+
+:root {
+  --primary: #ff71ce;
+  --secondary: #01cdfe;
+  --dark: #0f0f1b;
+  --panel: #1f1f2e;
+  --text: #f5f5f5;
+  --alert: #ff3860;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: radial-gradient(circle at top left, #1f1f2e, #0f0f1b);
+  font-family: 'Orbitron', sans-serif;
+  color: var(--text);
+  padding: 20px;
+  overflow-x: hidden;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.container {
+  max-width: 960px;
+  margin: auto;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Encabezado anime */
+header {
+  text-align: center;
+  margin-bottom: 40px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px var(--primary);
+}
+
+header h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+header p {
+  font-size: 1rem;
+  color: #eee;
+}
+
+/* Tarjetas tipo panel de mecha */
+.card {
+  background: var(--panel);
+  padding: 25px;
+  border-left: 4px solid var(--primary);
+  margin-bottom: 25px;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(255, 113, 206, 0.2);
+}
+
+/* Select */
+.select-container {
+  margin-top: 15px;
+}
+
+select {
+  width: 100%;
+  padding: 12px;
+  background: #13131f;
+  border: 2px solid var(--primary);
+  color: var(--text);
+  font-size: 1rem;
+  border-radius: 8px;
+  outline: none;
+  transition: 0.3s ease;
+}
+
+select:focus {
+  border-color: var(--secondary);
+  box-shadow: 0 0 8px var(--secondary);
+}
+
+/* Inputs */
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  background: #13131f;
+  color: var(--text);
+  border: 2px solid var(--secondary);
+  border-radius: 8px;
+  outline: none;
+  transition: 0.3s;
+}
+
+input:focus {
+  box-shadow: 0 0 10px var(--secondary);
+}
+
+/* Botones anime glow */
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin-top: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 0 12px rgba(255, 113, 206, 0.3);
+}
+
+#submitButton {
+  background: var(--primary);
+}
+
+#updateButton {
+  background: var(--secondary);
+}
+
+#deleteButton {
+  background: var(--alert);
+}
+
+button:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.4);
+}
+
+/* Mensaje del formulario */
+#formMessage {
+  margin-top: 10px;
+  color: var(--secondary);
+  font-weight: 600;
+}
+
+/* Tabla de usuarios */
+.table-container {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #141421;
+  border: 2px solid var(--primary);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(1, 205, 254, 0.3);
+}
+
+th,
+td {
+  padding: 14px 18px;
+  text-align: left;
+  color: var(--text);
+  border-bottom: 1px solid var(--panel);
+}
+
+th {
+  background-color: var(--primary);
+  color: black;
+}
+
+tr:nth-child(even) {
+  background-color: #1e1e2c;
+}
+
+tr:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  transition: 0.2s ease-in;
+}
+
+/* Scrollbar personalizada estilo anime */
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #1b1b2f;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 8px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}

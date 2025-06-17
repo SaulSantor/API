@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administra tus usuarios</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Administra tu usuario</h1>
+            <p>Selecciona a un usuario por su ID o Administralo</p>
+        </header>
+
+        <!-- User Selection -->
+        <div class="card">
+            <h2>Seleccionar usuario</h2>
+            <div class="select-container">
+                <select id="userSelect" onchange="fetchUser()">
+                    <option value="">Selecciona un ID de usuario</option>
+                    {% for user in users %}
+                    <option value="{{ user.id }}">{{ user.id }} - {{ user.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div id="userDetails">
+                <p>Selecciona un usuario para ver los detalles.</p>
+            </div>
+        </div>
+
+        <!-- User Management Form -->
+        <div class="card">
+            <h2>Administra tu usuario</h2>
+            <form id="userForm">
+                <div class="form-group">
+                    <label for="name">Nombre</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <input type="hidden" id="userId">
+                <button type="submit" id="submitButton">Añade un usuario</button>
+                <button type="submit" id="updateButton" style="display: none;">Actualiza un usuario</button>
+                <button type="button" id="deleteButton">Elimina al ultimo usuario</button>
+            </form>
+            <div id="formMessage"></div>
+        </div>
+
+        <!-- User List -->
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody id="userTable">
+                    {% for user in users %}
+                    <tr>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.name }}</td>
+                        <td>{{ user.email }}</td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="3">Usuarios no encontrados.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+
+</html>
